@@ -3,9 +3,6 @@
 CREATE DATABASE `Minions`;
 
 
-
-
-
 /*=========2. Create Tables====================*/
 
 CREATE TABLE `Minions`(
@@ -20,9 +17,6 @@ CREATE TABLE `Towns`(
 );
 
 
-
-
-
 /*=======3. Alter Minions Table==================*/
 
 ALTER TABLE `Minions`
@@ -31,9 +25,6 @@ ADD COLUMN `Town_id` INT NOT NULL;
 ALTER TABLE `Minions`
 ADD CONSTRAINT FK_minions_towns 
 FOREIGN KEY (`Town_id`) REFERENCES `Towns`(`id`);
-
-
-
 
 
 /*=======4. Insert Records in Both Tables=========*/
@@ -47,23 +38,13 @@ INSERT INTO `Minions`(Name, Age, Town_id) VALUES ('Bob', 15, 4);
 INSERT INTO `Minions`(Name, Age, Town_id) VALUES ('Steward', NULL, 2);
 
 
-
-
-
 /*=======5. Truncate Table Minions================*/
 TRUNCATE TABLE `Minions`;
-
-
-
-
 
 
 /*=======6. Drop All Tables=======================*/
 DROP TABLE `Minions`;
 DROP TABLE `Towns`;
-
-
-
 
 
 /*=======7. Create Table People===================*/
@@ -91,9 +72,6 @@ VALUES ('Martin', 'm', '1995-02-01'),
 ('Misha', 'm', '1940-02-01');
 
 
-
-
-
 /*=======8. Create Table Users===================*/
 
 CREATE TABLE `Users`(
@@ -116,9 +94,6 @@ VALUES ('Mpetrov','12345',NULL, 'false'),
 ('Mariika', '12375', NULL, 'false');
 
 
-
-
-
 /*=======9. Change Primary Key=========================*/
 
 ALTER TABLE `Users`
@@ -128,25 +103,18 @@ ALTER TABLE `Users`
 ADD CONSTRAINT PK_Users PRIMARY KEY (`Id`, `Username`);
 
 
-
-
-
 /*=======10. Set Default Value of a Field==============*/
 
 ALTER TABLE `Users` 
 	MODIFY COLUMN `Last_Login_Time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
  
  
-
-
-/*=======11. Set Unique Field==========================*/
+ /*=======11. Set Unique Field==========================*/
 
 ALTER TABLE `Users`
 	DROP PRIMARY KEY,
 	ADD CONSTRAINT PRIMARY KEY (`Id`),
 	ADD CONSTRAINT UNIQUE (`Username`);
-
-
 
 
 /*=======12. Movies Database===========================*/
@@ -213,9 +181,6 @@ VALUES
 (3, 'Title Three', 1, 2, 3),
 (4, 'Title Four', 4, 5, 6),
 (5, 'Title Five', 7, 8, 9);
-
-
-
 
 
 /*=======13. Car Rental Database=======================*/
@@ -312,9 +277,6 @@ VALUES
 (20, 11, 30, 10, 600, 120000, 130000, 10000, '2019-01-01', '2019-01-11', 10, NULL, NULL, NULL, NULL),
 (70, 12, 21, 30, 100, 120000, 130000, 10000, '2019-03-01', '2019-03-11', 10, NULL, NULL, NULL, NULL),
 (22, 13, 50, 60, 260, 120000, 130000, 10000, '2019-04-01', '2019-04-11', 10, NULL, NULL, NULL, NULL);
-
-
-
 
 
 /*=======14. Hotel Database============================*/
@@ -441,9 +403,6 @@ VALUES
 (3, '2009-03-05', 57433885, 100, NULL, NULL, NULL);
 
 
-
-
-
 /*=======15. Create SoftUni Database===================*/
 
 CREATE DATABASE `Soft_Uni`;
@@ -488,9 +447,6 @@ CREATE TABLE `Employees`(
 );
 
 
-
-
-
 /*=======16. Basic Insert===============================/
 
 INSERT INTO `Towns` (`Name`) 
@@ -518,17 +474,11 @@ INSERT INTO `Employees`
 		('Peter', 'Pan', 'Pan', 'Intern', 3, '2016-08-28', 599.88);
 
 
-
-		
-		
 /*=======17. Basic Select All Fields===================*/
 
 SELECT * FROM `Towns`;
 SELECT * FROM `Departments`;
 SELECT * FROM `Employees`;
-
-
-
 
 
 /*=======18. Basic Select All Fields and Order Them====*/
@@ -541,9 +491,6 @@ SELECT * FROM `Employees`
 ORDER BY `Salary` DESC;
 
 
-
-
-
 /*=======19. Basic Select Some Fields===================*/
 
 SELECT `Name` FROM `Towns`
@@ -554,16 +501,10 @@ SELECT `First_Name`, `Last_Name`, `Job_Title`, `Salary` FROM `Employees`
 ORDER BY `Salary` DESC;
 
 
-
-
-
 /*=======20. Increase Employees Salary===================*/
 
 UPDATE `Employees` SET `Salary` = Employees.Salary * 1.10;
 SELECT `Salary` FROM `Employees`;
-
-
-
 
 
 /*=======21. Decrease Tax Rate==========================*/
@@ -572,10 +513,6 @@ USE `Hotel`;
 
 UPDATE `Payments` AS P SET `Tax_Rate` = P.Tax_Rate - 0.03*P.Tax_Rate;
 SELECT `Tax_Rate` FROM `Payments`;
-
-
-
-
 
 /*=======22. Delete All Records==========================*/
 
