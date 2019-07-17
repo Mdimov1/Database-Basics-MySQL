@@ -304,5 +304,5 @@ FROM
 	`Employees`
 GROUP BY 
 	`Department_Id`
-ORDEr BY 
+ORDER BY 
 	`Department_Id`;
