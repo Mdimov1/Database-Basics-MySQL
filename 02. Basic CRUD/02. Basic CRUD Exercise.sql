@@ -2,7 +2,8 @@
 
 USE `Soft-Uni`;
 
-SELECT * 
+SELECT 
+	* 
 FROM 
 	`Departments`
 ORDER BY 
@@ -47,15 +48,16 @@ AS SELECT
 FROM 
 	`Employees`;
 	
-SELECT * 
+SELECT 
+	* 
 FROM 
 	`Full_Email_Address`;
 
  
 /* 6. Find All Different Employee’s Salaries */ 
 
-SELECT 
-	DISTINCT `Salary` 
+SELECT DISTINCT 
+	`Salary` 
 FROM 
 	`Employees`
 ORDER BY 
@@ -64,7 +66,8 @@ ORDER BY
 
 /* 7. Find all Information About Employees */ 
 
-SELECT * 
+SELECT 
+	* 
 FROM 
 	`Employees` 
 WHERE 
@@ -95,7 +98,10 @@ FROM
 WHERE
 	`Salary` IN (25000, 14000, 12500, 23600);
 
-SELECT * FROM `Full_Name`;
+SELECT 
+	* 
+FROM 
+	`Full_Name`;
 
 
 /* 10. Find All Employees Without Manager */
@@ -143,7 +149,8 @@ WHERE
 
 /* 14. Sort Employees Table */
 
-SELECT * 
+SELECT 
+	* 
 FROM 
 	`Employees`
 ORDER BY 
@@ -205,20 +212,27 @@ LIMIT 7;
 	
 /* 20. Increase Salaries */
 
-UPDATE `Employees`
+UPDATE 
+	`Employees`
 SET 
 	`Salary` = `Salary` + `Salary`*12.0/100.0
 WHERE 
 	`Job_Title` IN ('Engineering', 'Tool_Design', 'Marketing','Information_Services');
 
-SELECT `Salary` 
-FROM `Employees`;
+SELECT 
+	`Salary` 
+FROM 
+	`Employees`;
 
 
-/) 21. All Mountain Peaks */
+/* 21. All Mountain Peaks */
 
-SELECT Peak_Name FROM Peaks
-ORDER BY Peak_Name;
+SELECT 
+	Peak_Name 
+FROM 
+	Peaks
+ORDER BY 
+	Peak_Name;
 
 
 /* 22. Biggest Countries by Population */
