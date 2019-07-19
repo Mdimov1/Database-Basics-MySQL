@@ -6,36 +6,53 @@ CREATE DATABASE `Minions`;
 /* 2. Create Tables */
 
 CREATE TABLE `Minions`(
-`Id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`Name` VARCHAR(30) NOT NULL,
-`Age` INT
+	`Id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	`Name` VARCHAR(30) NOT NULL,
+	`Age` INT
 );
 
 CREATE TABLE `Towns`(
-`Id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`Name` VARCHAR(30) NOT NULL
+	`Id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	`Name` VARCHAR(30) NOT NULL
 );
 
 
 /* 3. Alter Minions Table */
 
 ALTER TABLE `Minions`
-ADD COLUMN `Town_id` INT NOT NULL;
+	ADD COLUMN `Town_id` INT NOT NULL;
 
 ALTER TABLE `Minions`
-ADD CONSTRAINT FK_minions_towns 
-FOREIGN KEY (`Town_id`) REFERENCES `Towns`(`id`);
+	ADD CONSTRAINT FK_minions_towns 
+	FOREIGN KEY (`Town_id`) 
+	REFERENCES `Towns`(`id`);
 
 
 /* 4. Insert Records in Both Tables */
 
-INSERT INTO `Towns` (Name) VALUES ('Sofia');
-INSERT INTO `Towns` (Name) VALUES ('Plovdiv');
-INSERT INTO `Towns` (Name) VALUES ('Varna');
+INSERT INTO `Towns` (Name) 
+VALUES 
+	('Sofia');
+	
+INSERT INTO `Towns` (Name) 
+VALUES 
+	('Plovdiv');
+	
+INSERT INTO `Towns` (Name) 
+VALUES 
+	('Varna');
 
-INSERT INTO `Minions`(Name, Age, Town_id) VALUES ('Kevin', 22, 1);
-INSERT INTO `Minions`(Name, Age, Town_id) VALUES ('Bob', 15, 4);
-INSERT INTO `Minions`(Name, Age, Town_id) VALUES ('Steward', NULL, 2);
+INSERT INTO `Minions`(Name, Age, Town_id) 
+VALUES 
+	('Kevin', 22, 1);
+	
+INSERT INTO `Minions`(Name, Age, Town_id) 
+VALUES 
+	('Bob', 15, 4);
+	
+INSERT INTO `Minions`(Name, Age, Town_id) 
+VALUES 
+	('Steward', NULL, 2);
 
 
 /* 5. Truncate Table Minions */
@@ -65,7 +82,7 @@ CREATE TABLE `People`
 );
 
 ALTER TABLE `People`
-ADD PRIMARY KEY(Id);
+	ADD PRIMARY KEY(Id);
 
 INSERT INTO `People`(`Name`, `Gender`, `Birthdate`) 
 VALUES 
@@ -88,7 +105,7 @@ CREATE TABLE `Users`(
 );
 
 ALTER TABLE `Users`
-ADD PRIMARY KEY(Id);
+	ADD PRIMARY KEY(Id);
 
 INSERT INTO `Users`(`Username`, `Password`, `Profile_Picture`, `Is_Deleted`)
 VALUES 
@@ -102,10 +119,11 @@ VALUES
 /* 9. Change Primary Key */
 
 ALTER TABLE `Users`
-DROP PRIMARY KEY;
+	DROP PRIMARY KEY;
 
 ALTER TABLE `Users`
-ADD CONSTRAINT PK_Users PRIMARY KEY (`Id`, `Username`);
+	ADD CONSTRAINT PK_Users 
+	PRIMARY KEY (`Id`, `Username`);
 
 
 /* 10. Set Default Value of a Field */
@@ -179,6 +197,7 @@ CREATE TABLE `Movies`(
     	`Rating` INT,
     	`Notes` NVARCHAR(255)
 );
+
 INSERT INTO `Movies`(`Id`, `Title`, `Director_Id`, `Genre_Id`, `Category_Id`)
 VALUES
 	(1, 'Title One', 2, 3, 4),
@@ -323,6 +342,7 @@ CREATE TABLE `Room_Status`(
 	Room_Status NVARCHAR(50) NOT NULL,
     	Notes NVARCHAR(255) NULL
 );
+
 INSERT INTO `Room_Status`(Room_Status, Notes)
 VALUES
 	('free', null),
@@ -411,6 +431,7 @@ VALUES
 /* 15. Create SoftUni Database */
 
 CREATE DATABASE `Soft_Uni`;
+
 USE `Soft_Uni`;
 
 CREATE TABLE `Towns`(
@@ -478,38 +499,60 @@ VALUES
 	('Georgi', 'Terziev', 'Ivanov', 'CEO', 2, '2007-12-09', 3000.00),
 	('Peter', 'Pan', 'Pan', 'Intern', 3, '2016-08-28', 599.88);
 
+
 /* 17. Basic Select All Fields */
 
 SELECT * FROM `Towns`;
+
 SELECT * FROM `Departments`;
+
 SELECT * FROM `Employees`;
 
 
 /* 18. Basic Select All Fields and Order Them */
 
-SELECT * FROM `Towns`
+SELECT 
+	*
+FROM 
+	`Towns`
 ORDER BY 
 	`Name`;
-SELECT * FROM `Departments`
+	
+SELECT 
+	* 
+FROM 
+	`Departments`
 ORDER BY 
 	`Name`;
-SELECT * FROM `Employees`
+	
+SELECT 
+	* 
+FROM 
+	`Employees`
 ORDER BY 
 	`Salary` DESC;
 
 
 /* 19. Basic Select Some Fields */
 
-SELECT `Name` 
-FROM `Towns`
+SELECT 
+	`Name` 
+FROM 
+	`Towns`
 ORDER BY 
 	`Name`;
-SELECT `Name` 
-FROM `Departments`
+	
+SELECT 
+	`Name` 
+FROM 
+	`Departments`
 ORDER BY 
 	`Name`;
-SELECT `First_Name`, `Last_Name`, `Job_Title`, `Salary` 
-FROM `Employees`
+	
+SELECT 
+	`First_Name`, `Last_Name`, `Job_Title`, `Salary` 
+FROM 
+	`Employees`
 ORDER BY 
 	`Salary` DESC;
 
@@ -517,21 +560,28 @@ ORDER BY
 /* 20. Increase Employees Salary */
 
 UPDATE `Employees` 
-SET `Salary` = Employees.Salary * 1.10;
-SELECT `Salary` 
-FROM `Employees`;
+SET 
+	`Salary` = Employees.Salary * 1.10;
+SELECT 
+	`Salary` 
+FROM 
+	`Employees`;
 
 
 /* 21. Decrease Tax Rate */
 USE `Hotel`;
 
 UPDATE `Payments` AS P 
-SET `Tax_Rate` = P.Tax_Rate - 0.03*P.Tax_Rate;
-SELECT `Tax_Rate` 
-FROM `Payments`;
+SET 
+	`Tax_Rate` = P.Tax_Rate - 0.03*P.Tax_Rate;
+SELECT 
+	`Tax_Rate` 
+FROM 
+	`Payments`;
 
 
 /* 22. Delete All Records */
+
 USE `Hotel`;
 
 TRUNCATE `Occupancies`;
