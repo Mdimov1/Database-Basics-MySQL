@@ -1,7 +1,7 @@
-CREATE DATABASE Sewing_Workshop;
-
 /* I. Create DB for sewing workshop */
 
+CREATE DATABASE Sewing_Workshop; 
+ 
 GO
 USE Sewing_Workshop;
 
@@ -36,7 +36,7 @@ CREATE TABLE Tailors(
     FOREIGN KEY (Order_Id) 
     REFERENCES Orders (Order_Id)
 );
-
+ 
 /* Insert data into tables */
 
 GO
